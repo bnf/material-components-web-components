@@ -32,7 +32,12 @@ $transparent-theme: (
 );
 
 @mixin theme($theme: $transparent-theme) {
+  // TODO(b/187335657): Remove after fully migrated to use Theming API.
   @include css.declaration(--mdc-ripple-color, map.get($theme, state));
+  @include css.declaration(
+    --mdc-ripple-hover-state-layer-color,
+    map.get($theme, state)
+  );
 
   $opacity-map: map.get($theme, opacity);
   @if $opacity-map {

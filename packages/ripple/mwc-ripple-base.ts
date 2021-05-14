@@ -39,6 +39,8 @@ export class RippleBase extends BaseElement implements RippleInterface {
 
   @property({type: Boolean}) selected = false;
 
+  @property({type: Boolean}) internalUseStateLayerCustomProperties = false;
+
   @state() protected hovering = false;
 
   @state() protected bgFocused = false;
@@ -218,6 +220,8 @@ export class RippleBase extends BaseElement implements RippleInterface {
       'mdc-ripple-upgraded--foreground-activation': this.fgActivation,
       'mdc-ripple-upgraded--foreground-deactivation': this.fgDeactivation,
       'mdc-ripple-upgraded--unbounded': this.unbounded,
+      'mdc-ripple-surface--internal-use-state-layer-custom-properties':
+          this.internalUseStateLayerCustomProperties,
     };
     return html`
         <div class="mdc-ripple-surface mdc-ripple-upgraded ${classMap(classes)}"
